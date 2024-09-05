@@ -5,7 +5,7 @@
 <ol>
 <li>Download by this <a href="https://github.com/aimatochysia/color-picker-extension/archive/refs/heads/main.zip">link!</a></li>
 <li>Unzip the zip files on an empty folder.</li>
-<li>Navigate <a href="chrome://extensions/">here!</a></li>
+<li>Navigate <a  href="chrome://extensions/" target="_blank">here!</a></li>
 <li>Enable "Developer Mode" on top right on Chrome or middle left on Edge.</li>
 <li>Click "Load Unpacked" on top left on Chrome or middle top on Edge.</li>
 <li>Select the directory of the folder you unzipped.</li>
