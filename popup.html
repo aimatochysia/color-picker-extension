@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Picker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      width: 220px;
+      margin: 0;
+      padding: 10px;
+    }
+    
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      border: none;
+    }
+
+    .color-display {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .color-box {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #000;
+    }
+
+    .switch-container {
+      display: flex;
+      align-items: center;
+      margin: 0 10px;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #95bbdb;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    .text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #hex-code, #rgb-code {
+      padding: 5px 0;
+      transition: text-shadow 0.3s ease, color 0.3s ease;
+    }
+
+    .selected-text {
+      background-color: rgba(255, 0, 0, 0.3);
+    }
+
+    .history-container {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+
+    .history-color {
+      width: 25px;
+      height: 25px;
+      margin: 5px;
+      border: 1px solid #000;
+      cursor: pointer;
+    }
+
+    .notification.fade-in {
+      animation: fadeIn 0.5s forwards;
+    }
+
+    .notification.fade-out {
+      animation: fadeOut 0.5s forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h3>Color Picker</h3>
+  <button id="pick-color">Pick Color</button>
+  
+  <div class="color-display">
+    <div class="color-box" id="color-box"></div>
+
+    <div class="switch-container">
+      <label class="switch">
+        <input type="checkbox" id="color-format-switch">
+        <span class="slider"></span>
+      </label>
+    </div>
+    
+    <div class="text">
+      <div id="hex-code">HEX: #FFFFFF</div>
+      <div id="rgb-code">RGB: (255, 255, 255)</div>
+    </div>
+  </div>
+
+  <div class="history-container" id="color-history"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
